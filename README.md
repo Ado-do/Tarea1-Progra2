@@ -3,4 +3,4 @@
 ### Equipo
 * Alonso Bustos
 * Lirayen Martinez
-* Cano 
+* Luciano Argomedo
