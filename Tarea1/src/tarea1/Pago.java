@@ -9,7 +9,7 @@ class Transferencia {
 }
 
 class Tarjeta {
-    
+       
 }
 
 public class Pago {
