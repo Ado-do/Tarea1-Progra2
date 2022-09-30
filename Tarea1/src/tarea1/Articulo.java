@@ -13,15 +13,15 @@ public class Articulo {
         this.precio = precio;
     }
     public float getPeso() {
-        return peso;
+        return this.peso;
     }
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
     public String getDescription() {
-        return descripcion;
+        return this.descripcion;
     }
     public float getPrecio() {
-        return precio;
+        return this.precio;
     }
 }
