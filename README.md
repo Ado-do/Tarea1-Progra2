@@ -4,3 +4,6 @@
 * Alonso Bustos
 * Lirayen Martinez
 * Luciano Argomedo
+
+### Material
+* [UML](https://elvex.ugr.es/decsai/java/pdf/3C-Relaciones.pdf)
