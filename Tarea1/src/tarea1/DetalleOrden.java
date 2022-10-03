@@ -21,6 +21,6 @@ public class DetalleOrden {
         return articulo.getPeso() * cantidad;
     }
     public String toString() {
-        return "Detalles de la Orden: ("+ cantidad + " unidades)\n" + articulo.toString();
+        return "Detalles de la Orden: " + "("+cantidad+" unidades de "+articulo.getNombre()+")\n" + articulo.toString();
     }
 }

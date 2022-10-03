@@ -1,17 +1,24 @@
 package tarea1;
 
-class Efectivo {
+import java.util.Date;
 
-}
-
-class Transferencia {
-
-}
-
-class Tarjeta {
-       
-}
-
-public class Pago {
+public abstract class Pago {
+    private float monto;
+    private Date fecha;
     
+    public Pago() {
+        
+    }
+}
+
+class Efectivo extends Pago {
+
+}
+
+class Transferencia extends Pago {
+
+}
+
+class Tarjeta extends Pago {
+       
 }

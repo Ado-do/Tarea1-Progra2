@@ -8,23 +8,23 @@ public class Articulo {
 
     public Articulo(String nombre, String descripcion, float peso, float precio) {
         this.nombre = nombre;
-        this.peso = peso;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.peso = peso;
     }
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
     public String getDescription() {
-        return this.descripcion;
+        return descripcion;
     }
     public float getPeso() {
-        return this.peso;
+        return peso;
     }
     public float getPrecio() {
-        return this.precio;
+        return precio;
     }
     public String toString() {
-        return "Articulo: "+this.nombre + "\nDescripción: "+this.descripcion + "\nPeso: "+this.peso+" Kg" + "\nPrecio = $"+this.precio;
+        return "Articulo: "+nombre + "\n    Descripción: "+descripcion + "\n    Peso: "+peso+" Kg" + "\n    Precio = $"+precio;
     }
 }
