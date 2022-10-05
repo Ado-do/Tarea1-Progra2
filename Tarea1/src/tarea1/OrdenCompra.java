@@ -11,9 +11,30 @@ public class OrdenCompra {
     private ArrayList<Pago> pagos;
     private DocTributario documento;
 
-    public OrdenCompra() {
-        // Hacer new de lista de DetalleOrden(es) para que sea una composicion (UML)
-        // Pedir puntero a DocTrib para que sea agregacion (UML)
+    public OrdenCompra(Cliente cliente) {
+        this.cliente = cliente;
+        fecha = new Date();
+        estado = "Creando orden de compra";
+        detalles = new ArrayList<DetalleOrden>(); // Se CREAN detalles mas adelante
+        pagos = new ArrayList<Pago>(); // Se AGREGAN clientes mas adelante
+    }
+    public void addDetalle(Articulo articulo, int cantidad) {
+        detalles.add(new DetalleOrden(this, articulo, cantidad));
+        estado = "Detalles agregados";
+    }
+    public void addPagos(Pago... pagosIngresados) {
+        for (Pago pago : pagosIngresados) {
+            this.pagos.add(pago);
+            estado = "Procesando pago";
+        }
+    }
+    public void addDoc(DocTributario doc) {
+        this.documento = doc;
+        if (documento.getClass().getSimpleName() == "Boleta") {
+            estado = "Boleta generada";
+        } else {
+            estado = "Factura generada";
+        }
     }
     public float calcPrecioSinIVA() {
         float total = 0;
@@ -43,7 +64,28 @@ public class OrdenCompra {
         }
         return total;
     }
-    public String toString() { //TODO: Agregar otras propiedas (Cliente, pago, etc)
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+    public Date getFecha() {
+        return fecha;
+    }
+    public String getEstado() {
+        return estado;
+    }
+    public ArrayList<DetalleOrden> getDetalles() {
+        return detalles;
+    }
+    public ArrayList<Pago> getPagos() {
+        return pagos;
+    }
+    public DocTributario getDocumento() {
+        return documento;
+    }
+
+    @Override
+    public String toString() { //TODO: Agregar otras propiedades (Cliente, pago, etc)
         String string = "Orden de Compra:\n";
         for (DetalleOrden detalleOrden : detalles) {
             string += detalleOrden.toString() + "\n";

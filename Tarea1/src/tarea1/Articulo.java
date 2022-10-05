@@ -12,6 +12,7 @@ public class Articulo {
         this.precio = precio;
         this.peso = peso;
     }
+    
     public String getNombre() {
         return nombre;
     }
@@ -24,6 +25,19 @@ public class Articulo {
     public float getPrecio() {
         return precio;
     }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+    @Override
     public String toString() {
         return "Articulo: "+nombre + "\n    Descripción: "+descripcion + "\n    Peso: "+peso+" Kg" + "\n    Precio = $"+precio;
     }
