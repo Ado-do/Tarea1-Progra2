@@ -1,7 +1,19 @@
 package tarea1;
 
 public class Direccion {
-    // Propiedades
+    private String direccion;
     
-    // Constructor
+    public Direccion(String direccion) {
+        this.direccion = direccion;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    @Override
+    public String toString() {
+        return "Dirección: "+direccion;
+    }
 }

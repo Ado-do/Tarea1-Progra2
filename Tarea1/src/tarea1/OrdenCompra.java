@@ -18,17 +18,17 @@ public class OrdenCompra {
         detalles = new ArrayList<DetalleOrden>(); // Se CREAN detalles mas adelante
         pagos = new ArrayList<Pago>(); // Se AGREGAN clientes mas adelante
     }
-    public void addDetalle(Articulo articulo, int cantidad) {
+    public void addDetalle(Articulo articulo, int cantidad) { // SETTER DETALLES
         detalles.add(new DetalleOrden(this, articulo, cantidad));
         estado = "Detalles agregados";
     }
-    public void addPagos(Pago... pagosIngresados) {
+    public void addPagos(Pago... pagosIngresados) { // SETTER PAGOS
         for (Pago pago : pagosIngresados) {
             this.pagos.add(pago);
             estado = "Procesando pago";
         }
     }
-    public void addDoc(DocTributario doc) {
+    public void addDoc(DocTributario doc) { // SETTER DOCUMENTO
         this.documento = doc;
         if (documento.getClass().getSimpleName() == "Boleta") {
             estado = "Boleta generada";
@@ -85,11 +85,18 @@ public class OrdenCompra {
     }
 
     @Override
-    public String toString() { //TODO: Agregar otras propiedades (Cliente, pago, etc)
-        String string = "Orden de Compra:\n";
+    public String toString() {
+        String string = "** Orden de Compra:\n";
+        string += cliente.toString()+"\nFecha: "+fecha+"\nEstado: "+estado+"\n";
+        string += "* Detalles de orden:\n";
         for (DetalleOrden detalleOrden : detalles) {
-            string += detalleOrden.toString() + "\n";
+            string += detalleOrden.toString()+"\n";
         }
+        string += "* Pagos registrados:\n";
+        for (Pago pago : pagos) {
+            string += pago.toString()+"\n";
+        }
+        string += "* Documento tributario:\n"+documento.toString();
         return string;
     }
 }

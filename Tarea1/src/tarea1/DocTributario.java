@@ -6,26 +6,62 @@ public abstract class DocTributario {
     private String numero;
     private String rut;
     private Date fecha;
-    private OrdenCompra orden;
+    private Direccion direccion;
     
-    public DocTributario() {
-        
+    public DocTributario(String numero, String rut, Date fecha, Direccion direccion) {
+        this.numero = numero;
+        this.rut = rut;
+        this.fecha = (fecha == null) ? new Date() : fecha;
+        this.direccion = direccion;
     }
-    // Faltan getters, setters y toString
+    public String getNumero() {
+        return numero;
+    }
+    public String getRut() {
+        return rut;
+    }
+    public Date getFecha() {
+        return fecha;
+    }
+    public Direccion getDireccion() {
+        return direccion;
+    }
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+    @Override
+    public String toString() {
+        return " Número: "+numero+"\n RUT: "+rut+"\n Fecha: "+fecha+"\n Dirección: "+direccion.getDireccion();
+    }
 }
 
 class Boleta extends DocTributario {
-    // Agregar cosas de boletas
     
-    public Boleta() {
-        super();
+    public Boleta(String numero, String rut, Date fecha, Direccion direccion) {
+        super(numero, rut, fecha, direccion);
+    }
+    @Override
+    public String toString() {
+        return "Boleta:\n"+super.toString();
     }
 }
 
 class Factura extends DocTributario {
-    // Agregar cosas de facturas
     
-    public Factura() {
-        super();
+    public Factura(String numero, String rut, Date fecha, Direccion direccion) {
+        super(numero, rut, fecha, direccion);
+    }
+    @Override
+    public String toString() {
+        return "Factura:\n"+super.toString();
     }
 }
