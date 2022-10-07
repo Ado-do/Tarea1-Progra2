@@ -37,6 +37,6 @@ public class DetalleOrden {
     }
     @Override
     public String toString() {
-        return "Detalles de la orden del cliente "+orden.getCliente()+": " + "("+cantidad+" unidades de "+articulo.getNombre()+")\n" + articulo.toString();
+        return "Unidades: "+cantidad+"\n "+articulo.toString();
     }
 }

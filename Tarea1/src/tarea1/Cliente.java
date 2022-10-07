@@ -16,11 +16,17 @@ public class Cliente {
     public String getRut() {
         return rut;
     }
+    public Direccion getDireccion() {
+        return direccion;
+    }
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     public void setRut(String rut) {
         this.rut = rut;
+    }
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
     @Override
     public String toString() {

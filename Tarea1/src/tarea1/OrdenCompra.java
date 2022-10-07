@@ -30,7 +30,7 @@ public class OrdenCompra {
     }
     public void addDoc(DocTributario doc) { // SETTER DOCUMENTO
         this.documento = doc;
-        if (documento.getClass().getSimpleName() == "Boleta") {
+        if (doc instanceof Boleta) {
             estado = "Boleta generada";
         } else {
             estado = "Factura generada";
@@ -86,17 +86,32 @@ public class OrdenCompra {
 
     @Override
     public String toString() {
-        String string = "** Orden de Compra:\n";
+        String string = "*** Orden de Compra:\n";
         string += cliente.toString()+"\nFecha: "+fecha+"\nEstado: "+estado+"\n";
-        string += "* Detalles de orden:\n";
-        for (DetalleOrden detalleOrden : detalles) {
-            string += detalleOrden.toString()+"\n";
+        if (this.detalles != null) {
+            string += "* Detalles de orden:\n";
+            for (DetalleOrden detalleOrden : detalles) {
+                string += " "+detalleOrden.toString()+"\n";
+            }
         }
-        string += "* Pagos registrados:\n";
-        for (Pago pago : pagos) {
-            string += pago.toString()+"\n";
+        if (this.pagos != null) {
+            string += "** Pagos registrados:\n";
+            boolean hayEfectivo = false;
+            float vuelto = 0;
+            for (Pago pago : pagos) {
+                string += pago.toString()+"\n";
+                if (pago instanceof Efectivo) {
+                    hayEfectivo = true;
+                    vuelto = ((Efectivo)pago).calcDevolucion(this.calcPrecio());
+                }
+            }
+            if (hayEfectivo) {
+                string += " Vuelto: $"+vuelto+"\n";
+            }
         }
-        string += "* Documento tributario:\n"+documento.toString();
+        if (this.documento != null) {
+            string += "** Documento tributario:\n"+documento.toString();
+        }
         return string;
     }
 }
