@@ -6,7 +6,7 @@ public abstract class DocTributario {
     private String numero;
     private String rut;
     private Date fecha;
-    private OrdenCompra orden;
+    public OrdenCompra orden;
     
     public DocTributario() {
         
@@ -15,16 +15,18 @@ public abstract class DocTributario {
 }
 
 class Boleta extends DocTributario {
-    // Agregar cosas de boletas
-    
+    float precioSinIVA = orden.calcPrecioSinIVA();
+    float IVA = orden.calcIVA();
+    float precio = orden.calcPrecio();
+   
     public Boleta() {
         super();
     }
 }
 
 class Factura extends DocTributario {
-    // Agregar cosas de facturas
-    
+    float precioSinIVA = orden.calcPrecioSinIVA();
+
     public Factura() {
         super();
     }

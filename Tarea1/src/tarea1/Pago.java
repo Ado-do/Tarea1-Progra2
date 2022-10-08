@@ -4,8 +4,8 @@ import java.util.Date;
 
 public abstract class Pago {
     private Date fecha;
-    public DetalleOrden detalleOrden;
-    private float monto = detalleOrden.getcalcPrecio();
+    public OrdenCompra OrdenCompra;
+    private float monto = OrdenCompra.calcPrecio();
     public Pago() {
         
     }
