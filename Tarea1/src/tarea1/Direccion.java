@@ -1,7 +1,22 @@
 package tarea1;
 
 public class Direccion {
-    // Propiedades
-    
-    // Constructor
+
+    private String direccion;
+
+    public Direccion(String direccion) {
+        this.direccion = direccion;
+
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String toString() {
+        return "Direccion: " + direccion;
+    }
 }
+// Propiedades
+
+// Constructor
