@@ -10,10 +10,12 @@ public class Tarea1 {
         Cliente cliente = new Cliente(nombre, rut, new Direccion(direccion));
         return cliente;
     }
+    //Crea orden de compras
     public OrdenCompra crearOrdenCompra(Cliente cliente) {
         OrdenCompra orden = new OrdenCompra(cliente);
         return orden;
     }
+    //Se crean los articulos (en este caso serán peliculas), se le asigna un nombre y luego el resto de atributos se genera al azar
     public Articulo crearPelicula(String nombre) {
         float peso = (float)((Math.floor(Math.random()*(10-1+1)+1)) / 10);
         float precio = (float)(1000 + Math.random() * (10000 - 1000));
@@ -24,11 +26,13 @@ public class Tarea1 {
     public void crearDetalle(OrdenCompra orden, Articulo articulo, int cant) {
         orden.addDetalle(articulo, cant);
     }
+    //Se le asigna la boleta al cliente, se genera el numero de la boleta de forma aleatoria y se le agregan los datos del cliente que se crearon en crearCliente
     public void crearBoleta(OrdenCompra orden) {
         Cliente c = orden.getCliente();
         String num = "B"+(int)Math.floor(Math.random()*(10000-1000+1)+1000);
         orden.addDoc(new Boleta(num, c.getRut(), new Date(), c.getDireccion()));
     }
+    //Lo mismo que en la boleta pero en este caso es para la factura
     public void crearFactura(OrdenCompra orden) {
         Cliente c = orden.getCliente();
         String num = "F"+(int)Math.floor(Math.random()*(10000-1000+1)+1000);
@@ -52,6 +56,7 @@ public class Tarea1 {
         test.crearBoleta(orden1);
         System.out.println(orden1.toString());
         
+        // 3 articulos iguales, 2 pagos en transferencia y con factura
         Cliente cliente2 = test.crearCliente("Matias Bustos", "18.764.321-1", "Barrio Universitario 1006");
         OrdenCompra orden2 = test.crearOrdenCompra(cliente2);
         Articulo perfectBlue = test.crearPelicula("Perfect Blue");
@@ -63,6 +68,7 @@ public class Tarea1 {
         test.crearFactura(orden2);
         System.out.println(orden2.toString());
 
+        //1 articulo, 1 pago con tarjeta y boleta
         Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
         OrdenCompra orden3 = test.crearOrdenCompra(cliente3);
         Articulo scream = test.crearPelicula("Scream");
@@ -71,7 +77,8 @@ public class Tarea1 {
         orden3.addPagos(pagoScream);
         test.crearBoleta(orden3);
         System.out.println(orden3.toString());
-
+        
+        //4 articulos, 1 pago en efectivo y factura
         Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
         OrdenCompra orden4 = test.crearOrdenCompra(cliente4);
         Articulo akira = test.crearPelicula("Akira");
