@@ -5,10 +5,12 @@ public class Cliente {
     // Propiedades
     private String nombre;
     private String rut;
+    private Direccion direccion;
 
-    public Cliente(String nombre, String rut) {
+    public Cliente(String nombre, String rut, Direccion direccion) {
         this.nombre = nombre;
         this.rut = rut;
+        this.direccion = direccion;
 
     }
 

@@ -13,6 +13,12 @@ public class Direccion {
         return direccion;
     }
 
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+
+    }
+
+    @Override
     public String toString() {
         return "Direccion: " + direccion;
     }
