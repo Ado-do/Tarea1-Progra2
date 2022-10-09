@@ -7,9 +7,9 @@
 </div>
 
 ### Equipo
-* Alonso Isaias Bustos Espinoza
-* Lirayen Maria Martinez Kramm
-* Luciano Hernan Argomedo Solis
+* Alonso Isaias Bustos Espinoza (Usuario de github Ado-do)
+* Lirayen Maria Martinez Kramm (Usuario de github liraa011)
+* Luciano Hernan Argomedo Solis (Usuario de github Kano10)
 
 ### Enunciado
 <div align="center">
