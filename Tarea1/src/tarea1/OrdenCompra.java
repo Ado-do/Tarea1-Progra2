@@ -7,31 +7,32 @@ public class OrdenCompra {
     private Cliente cliente;
     private Date fecha;
     private String estado;
-    private ArrayList<DetalleOrden> detalles;
-    private ArrayList<Pago> pagos;
+    private ArrayList<DetalleOrden> detalles; // Arreglo de DetalleOrden
+    private ArrayList<Pago> pagos; // Arreglo de Pago
     private DocTributario documento;
 
     public OrdenCompra(Cliente cliente) {
         this.cliente = cliente;
         fecha = new Date();
         estado = "\"Creando orden de compra\"";
-        detalles = new ArrayList<DetalleOrden>(); // Se CREAN detalles mas adelante
-        pagos = new ArrayList<Pago>(); // Se AGREGAN clientes mas adelante
+        detalles = new ArrayList<DetalleOrden>(); // Se CREAN (composicion) detalles mas adelante
+        pagos = new ArrayList<Pago>(); // Se AGREGAN (agregacion) clientes mas adelante
     }
     public void addDetalle(Articulo articulo, int cantidad) { // SETTER DETALLES
-        detalles.add(new DetalleOrden(this, articulo, cantidad));
+        detalles.add(new DetalleOrden(this, articulo, cantidad)); // Se piden en los parametros datos para crear DetalleOrdenes
         estado = "\"Detalles agregados\"";
     }
-    public void addPagos(Pago... pagosIngresados) { // SETTER PAGOS
+    public void addPagos(Pago... pagosIngresados) { // SETTER PAGOS (Se piden punteros a objetos "Pago")
+        // Aqui se hizo uso de "varargs", lo que permite ingresar uno o varios parametros en el metodo
         for (Pago pago : pagosIngresados) {
             this.pagos.add(pago);
             estado = "\"Procesando pago\"";
         }
     }
     public void addDoc(DocTributario doc) { // SETTER DOCUMENTO
-        doc.setOrden(this);
+        doc.setOrden(this); // Se asigna la "instancia actual" de la clase a el documento (se agrega en el objeto doc)
         this.documento = doc;
-        if (doc instanceof Boleta) {
+        if (doc instanceof Boleta) { // Dependiendo de que subclase es, se asigna distinto estado
             estado = "\"Boleta generada\"";
         } else {
             estado = "\"Factura generada\"";
@@ -119,7 +120,7 @@ public class OrdenCompra {
             float vuelto = 0;
             for (Pago pago : pagos) {
                 string += pago.toString()+"\n";
-                if (pago instanceof Efectivo) {
+                if (pago instanceof Efectivo) { // En caso de efectivo se agrega la informacion de vuelto
                     hayEfectivo = true;
                     vuelto = ((Efectivo)pago).calcDevolucion(this.calcPrecio());
                 }

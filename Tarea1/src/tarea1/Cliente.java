@@ -33,5 +33,3 @@ public class Cliente {
         return "Cliente "+nombre+"\n RUT: "+rut+"\n "+direccion.getDireccion();
     }
 }
-
-// Faltan getters, setters y toString

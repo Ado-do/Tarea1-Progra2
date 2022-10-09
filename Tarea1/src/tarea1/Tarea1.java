@@ -3,6 +3,8 @@ package tarea1;
 import java.util.Date;
 
 public class Tarea1 {
+    //! Metodos que nos ayudan a testar clases
+
     // Se usa formula para crear numeros aleatorios en cierto rango (con ayuda de Math)
     public Cliente crearCliente(String nombre, String rut, String direccion) {
         Cliente cliente = new Cliente(nombre, rut, new Direccion(direccion));
@@ -34,8 +36,9 @@ public class Tarea1 {
     }
 
     public static void main(String[] args) {
-        Tarea1 test = new Tarea1();
-
+        Tarea1 test = new Tarea1(); // Se crea objeto tipo Tarea1 para poder llamar los metodos antes declarados
+        
+        // 3 articulos, 1 pago (tarjeta tipo debito) y boleta
         Cliente cliente1 = test.crearCliente("Alonso Martinez", "19.654.123-K", "Barrio Universitario 1001");
         OrdenCompra orden1 = test.crearOrdenCompra(cliente1);
         Articulo shrek1 = test.crearPelicula("Shrek 1");
@@ -44,7 +47,7 @@ public class Tarea1 {
         test.crearDetalle(orden1, shrek1, 2);
         test.crearDetalle(orden1, shrek2, 1);
         test.crearDetalle(orden1, shrek3, 3);
-        Efectivo pagoShrek = new Efectivo(orden1.calcPrecio()+10, new Date(), orden1);
+        Tarjeta pagoShrek = new Tarjeta(orden1.calcPrecio(), new Date(), orden1, "Debito", "12478124124");
         orden1.addPagos(pagoShrek);
         test.crearBoleta(orden1);
         System.out.println(orden1.toString());

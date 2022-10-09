@@ -17,6 +17,3 @@ public class Direccion {
         return "Dirección: "+direccion;
     }
 }
-// Propiedades
-
-// Constructor

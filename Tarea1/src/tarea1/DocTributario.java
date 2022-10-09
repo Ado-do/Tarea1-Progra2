@@ -16,6 +16,9 @@ public abstract class DocTributario {
         this.fecha = (fecha == null) ? new Date() : fecha;
         this.direccion = direccion;
     }
+    public String getInfoCliente() {
+        return (numero + rut);
+    }
     public String getNumero() {
         return numero;
     }
@@ -30,6 +33,10 @@ public abstract class DocTributario {
     }
     public OrdenCompra getOrden() {
         return orden;
+    }
+    public void setInfoCliente(String numero, String rut) {
+        this.numero = numero;
+        this.rut = rut;
     }
     public void setNumero(String numero) {
         this.numero = numero;

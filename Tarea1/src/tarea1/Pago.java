@@ -3,8 +3,8 @@ package tarea1;
 import java.util.Date;
 
 public abstract class Pago {
-    protected float monto; // Se usa protected en vez de private para que la propiedad sea heredada a las subclases
-    protected Date fecha; // Se usa protected en vez de private para que la propiedad sea heredada a las subclases
+    protected float monto; //! Se usa protected en vez de private para que la propiedad sea heredada a las subclases
+    protected Date fecha; //! Se usa protected en vez de private para que la propiedad sea heredada a las subclases
     protected OrdenCompra orden;
     
     public Pago(float monto, Date fecha, OrdenCompra orden) {
@@ -78,27 +78,27 @@ class Transferencia extends Pago {
 
 class Tarjeta extends Pago {
     private String tipo;
-    private String numCuenta;
+    private String numTransaccion;
 
-    public Tarjeta(float monto, Date fecha, OrdenCompra orden, String tipo, String numCuenta) {
+    public Tarjeta(float monto, Date fecha, OrdenCompra orden, String tipo, String numTransaccion) {
         super(monto, fecha, orden);
         this.tipo = tipo;
-        this.numCuenta = numCuenta;
+        this.numTransaccion = numTransaccion;
     }
     public String getTipo() {
         return tipo;
     }
-    public String getNumCuenta() {
-        return numCuenta;
+    public String getnumTransaccion() {
+        return numTransaccion;
     }
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    public void setNumCuenta(String numCuenta) {
-        this.numCuenta = numCuenta;
+    public void setnumTransaccion(String numTransaccion) {
+        this.numTransaccion = numTransaccion;
     }
     @Override
     public String toString() {
-        return "Pago con tarjeta:\n"+super.toString()+"\n Tipo de tarjeta: "+tipo+"\n Número de cuenta: "+numCuenta;
+        return "Pago con tarjeta:\n"+super.toString()+"\n Tipo de tarjeta: "+tipo+"\n Número de transacción: "+numTransaccion;
     }
 }
