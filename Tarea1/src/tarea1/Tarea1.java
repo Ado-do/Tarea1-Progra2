@@ -48,7 +48,7 @@ public class Tarea1 {
         // orden1.addPagos(pagoShrek);
         // test.crearBoleta(orden1);
         // System.out.println(orden1.toString());
-
+        
         Cliente cliente2 = test.crearCliente("Matias Bustos", "18.764.321-1", "Barrio Universitario 1006");
         OrdenCompra orden2 = test.crearOrdenCompra(cliente2);
         Articulo perfectBlue = test.crearPelicula("Perfect Blue");
@@ -63,7 +63,20 @@ public class Tarea1 {
         // Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
 
 
-        // Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
+        //Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
+        //OrdenCompra orden4 = test.crearOrdenCompra(cliente4);
+        //Articulo akira = test.crearPelicula("Akira");
+        //Articulo perfectBlue = test.crearPelicula("Perfect Blue");
+        //Articulo onePieceFilmRed = test.crearPelicula("One piece Film red");
+        //Articulo theEndOfEvangelion = test.crearPelicula("The End of Evangelion");
+        //test.crearDetalle(orden4, akira, 1);
+        //test.crearDetalle(orden4, perfectBlue, 1);
+        //test.crearDetalle(orden4, onePieceFilmRed, 1);
+        //test.crearDetalle(orden4, theEndOfEvangelion, 1);
+        //Efectivo pago1 = new Efectivo(orden4.calcPrecio()+520,new Date(), orden4);
+        //orden4.addPagos(pago1);
+        //test.crearFactura(orden4);
+        //System.out.println(orden4.toString());
     }
 }
 
