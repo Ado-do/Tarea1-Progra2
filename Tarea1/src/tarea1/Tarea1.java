@@ -60,8 +60,14 @@ public class Tarea1 {
         test.crearFactura(orden2);
         System.out.println(orden2.toString());
 
-        // Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
-
+        //Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
+        //OrdenCompra orden3 = test.crearOrdenCompra(cliente3);
+        //Articulo scream = test.crearPelicula("Scream");
+        //test.crearDetalle(orden3, scream, 1);
+        //Tarjeta pagoScream = new Tarjeta(orden3.calcPrecio (), new Date (), orden3, "Debito", "5231183");
+        //orden3.addPagos(pagoScream);
+        //test.crearBoleta(orden3);
+        //System.out.println(orden3.toString());
 
         //Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
         //OrdenCompra orden4 = test.crearOrdenCompra(cliente4);
