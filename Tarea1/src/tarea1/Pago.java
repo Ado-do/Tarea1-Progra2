@@ -5,10 +5,12 @@ import java.util.Date;
 public abstract class Pago {
     protected float monto; // Se usa protected en vez de private para que la propiedad sea heredada a las subclases
     protected Date fecha; // Se usa protected en vez de private para que la propiedad sea heredada a las subclases
+    protected OrdenCompra orden;
     
-    public Pago(float monto, Date fecha) {
+    public Pago(float monto, Date fecha, OrdenCompra orden) {
         this.monto = monto;
         this.fecha = (fecha == null) ? new Date() : fecha;
+        this.orden = orden;
     }
     public float getMonto() {
         return monto;
@@ -16,11 +18,17 @@ public abstract class Pago {
     public Date getFecha() {
         return fecha;
     }
+    public OrdenCompra getOrden() {
+        return orden;
+    }
     public void setMonto(float monto) {
         this.monto = monto;
     }
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+    public void setOrden(OrdenCompra orden) {
+        this.orden = orden;
     }
     @Override
     public String toString() {
@@ -29,8 +37,8 @@ public abstract class Pago {
 }
 
 class Efectivo extends Pago {
-    public Efectivo(float monto, Date fecha) {
-        super(monto, fecha);
+    public Efectivo(float monto, Date fecha, OrdenCompra orden) {
+        super(monto, fecha, orden);
     }
     public float calcDevolucion(float montoTotal) {
         return (this.monto > montoTotal) ? (this.monto - montoTotal) : 0;
@@ -45,8 +53,8 @@ class Transferencia extends Pago {
     private String banco;
     private String numCuenta;
 
-    public Transferencia(float monto, Date fecha, String banco, String numCuenta) {
-        super(monto, fecha);
+    public Transferencia(float monto, Date fecha, OrdenCompra orden, String banco, String numCuenta) {
+        super(monto, fecha, orden);
         this.banco = banco;
         this.numCuenta = numCuenta;
     }
@@ -72,8 +80,8 @@ class Tarjeta extends Pago {
     private String tipo;
     private String numCuenta;
 
-    public Tarjeta(float monto, Date fecha, String tipo, String numCuenta) {
-        super(monto, fecha);
+    public Tarjeta(float monto, Date fecha, OrdenCompra orden, String tipo, String numCuenta) {
+        super(monto, fecha, orden);
         this.tipo = tipo;
         this.numCuenta = numCuenta;
     }

@@ -14,27 +14,27 @@ public class OrdenCompra {
     public OrdenCompra(Cliente cliente) {
         this.cliente = cliente;
         fecha = new Date();
-        estado = "Creando orden de compra";
+        estado = "\"Creando orden de compra\"";
         detalles = new ArrayList<DetalleOrden>(); // Se CREAN detalles mas adelante
         pagos = new ArrayList<Pago>(); // Se AGREGAN clientes mas adelante
     }
     public void addDetalle(Articulo articulo, int cantidad) { // SETTER DETALLES
         detalles.add(new DetalleOrden(this, articulo, cantidad));
-        estado = "Detalles agregados";
+        estado = "\"Detalles agregados\"";
     }
     public void addPagos(Pago... pagosIngresados) { // SETTER PAGOS
         for (Pago pago : pagosIngresados) {
             this.pagos.add(pago);
-            estado = "Procesando pago";
+            estado = "\"Procesando pago\"";
         }
     }
     public void addDoc(DocTributario doc) { // SETTER DOCUMENTO
         doc.setOrden(this);
         this.documento = doc;
         if (doc instanceof Boleta) {
-            estado = "Boleta generada";
+            estado = "\"Boleta generada\"";
         } else {
-            estado = "Factura generada";
+            estado = "\"Factura generada\"";
         }
     }
     public float calcPrecioSinIVA() {
