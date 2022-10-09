@@ -59,7 +59,7 @@ public class Tarea1 {
         orden2.addPagos(pago2Blue);
         test.crearFactura(orden2);
         System.out.println(orden2.toString());
-
+//1 articulo, 1 pago (tarjeta de debito) y Boleta
         Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
         OrdenCompra orden3 = test.crearOrdenCompra(cliente3);
         Articulo scream = test.crearPelicula("Scream");
