@@ -7,6 +7,7 @@ public abstract class DocTributario {
     private String rut;
     private Date fecha;
     private Direccion direccion;
+    private OrdenCompra orden;
     
     public DocTributario(String numero, String rut, Date fecha, Direccion direccion) {
         this.numero = numero;
@@ -26,6 +27,9 @@ public abstract class DocTributario {
     public Direccion getDireccion() {
         return direccion;
     }
+    public OrdenCompra getOrden() {
+        return orden;
+    }
     public void setNumero(String numero) {
         this.numero = numero;
     }
@@ -37,6 +41,9 @@ public abstract class DocTributario {
     }
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
+    }
+    public void setOrden(OrdenCompra orden) {
+        this.orden = orden;
     }
     @Override
     public String toString() {

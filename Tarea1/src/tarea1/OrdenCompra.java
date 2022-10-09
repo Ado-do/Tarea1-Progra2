@@ -29,6 +29,7 @@ public class OrdenCompra {
         }
     }
     public void addDoc(DocTributario doc) { // SETTER DOCUMENTO
+        doc.setOrden(this);
         this.documento = doc;
         if (doc instanceof Boleta) {
             estado = "Boleta generada";
@@ -83,13 +84,31 @@ public class OrdenCompra {
     public DocTributario getDocumento() {
         return documento;
     }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    public void setDetalles(ArrayList<DetalleOrden> detalles) {
+        this.detalles = detalles;
+    }
+    public void setPagos(ArrayList<Pago> pagos) {
+        this.pagos = pagos;
+    }
+    public void setDoc(DocTributario doc) {
+        this.documento = doc;
+    }
 
     @Override
     public String toString() {
         String string = "*** Orden de Compra:\n";
         string += cliente.toString()+"\nFecha: "+fecha+"\nEstado: "+estado+"\n";
         if (this.detalles != null) {
-            string += "* Detalles de orden:\n";
+            string += "** Detalles de orden:\n";
             for (DetalleOrden detalleOrden : detalles) {
                 string += " "+detalleOrden.toString()+"\n";
             }

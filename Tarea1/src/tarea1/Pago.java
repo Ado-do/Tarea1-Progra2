@@ -22,6 +22,7 @@ public abstract class Pago {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    @Override
     public String toString() {
         return " Monto: $"+monto+"\n Fecha: "+fecha;
     }

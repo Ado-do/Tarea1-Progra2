@@ -4,7 +4,7 @@ public class Articulo {
     private String nombre;
     private String descripcion;
     private float peso;
-    private float precio; // Este precio tiene el IVA agregado? (El resto del codigo lo escribi pensando que NO)
+    private float precio;
 
     public Articulo(String nombre, String descripcion, float peso, float precio) {
         this.nombre = nombre;

@@ -29,11 +29,17 @@ public class DetalleOrden {
     public Articulo getArticulo() {
         return articulo;
     }
+    public OrdenCompra getOrden() {
+        return orden;
+    }
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
     public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
+    }
+    public void setOrden(OrdenCompra orden) {
+        this.orden = orden;
     }
     @Override
     public String toString() {

@@ -13,8 +13,8 @@ public class Tarea1 {
         return orden;
     }
     public Articulo crearPelicula(String nombre) {
-        float peso = (float)(Math.floor(Math.random()*(10-1+1)+1) / 10);
-        float precio = (float) (1000 + Math.random() * (10000 - 1000));
+        float peso = (float)((Math.floor(Math.random()*(10-1+1)+1)) / 10);
+        float precio = (float)(1000 + Math.random() * (10000 - 1000));
         int calificacion = (int)Math.floor(Math.random()*(10-1+1)+1);
         Articulo pelicula = new Articulo("Pelicula en fisico: "+nombre, "Calificacion IMDb: "+calificacion+"/10", (float)peso, (int)precio);
         return pelicula;
@@ -25,7 +25,7 @@ public class Tarea1 {
     public void crearBoleta(OrdenCompra orden) {
         Cliente c = orden.getCliente();
         String num = "B"+(int)Math.floor(Math.random()*(10000-1000+1)+1000);
-        orden.addDoc(new Boleta(num, c.getRut(), null, c.getDireccion()));
+        orden.addDoc(new Boleta(num, c.getRut(), new Date(), c.getDireccion()));
     }
 
     public static void main(String[] args) {
@@ -39,12 +39,15 @@ public class Tarea1 {
         test.crearDetalle(orden1, shrek1, 2);
         test.crearDetalle(orden1, shrek2, 1);
         test.crearDetalle(orden1, shrek3, 3);
-        orden1.addPagos(new Efectivo(orden1.calcPrecio()+10, null));
+        orden1.addPagos(new Efectivo(orden1.calcPrecio()+10, new Date()));
         test.crearBoleta(orden1);
         System.out.println(orden1.toString());
 
         Cliente cliente2 = test.crearCliente("Matias Bustos", "18.764.321-1", "Barrio Universitario 1006");
-        
+        OrdenCompra orden2 = test.crearOrdenCompra(cliente2);
+        Articulo perfectBlue = test.crearPelicula("Perfect Blue");
+        test.crearDetalle(orden2, perfectBlue, 4);
+        orden2.addPagos(new Transferencia(orden1.calcPrecio(), null, null, null));
 
         Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
 
