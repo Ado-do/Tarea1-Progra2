@@ -36,18 +36,18 @@ public class Tarea1 {
     public static void main(String[] args) {
         Tarea1 test = new Tarea1();
 
-        // Cliente cliente1 = test.crearCliente("Alonso Martinez", "19.654.123-K", "Barrio Universitario 1001");
-        // OrdenCompra orden1 = test.crearOrdenCompra(cliente1);
-        // Articulo shrek1 = test.crearPelicula("Shrek 1");
-        // Articulo shrek2 = test.crearPelicula("Shrek 2");
-        // Articulo shrek3 = test.crearPelicula("Shrek 3");
-        // test.crearDetalle(orden1, shrek1, 2);
-        // test.crearDetalle(orden1, shrek2, 1);
-        // test.crearDetalle(orden1, shrek3, 3);
-        // Efectivo pagoShrek = new Efectivo(orden1.calcPrecio()+10, new Date(), orden1)
-        // orden1.addPagos(pagoShrek);
-        // test.crearBoleta(orden1);
-        // System.out.println(orden1.toString());
+        Cliente cliente1 = test.crearCliente("Alonso Martinez", "19.654.123-K", "Barrio Universitario 1001");
+        OrdenCompra orden1 = test.crearOrdenCompra(cliente1);
+        Articulo shrek1 = test.crearPelicula("Shrek 1");
+        Articulo shrek2 = test.crearPelicula("Shrek 2");
+        Articulo shrek3 = test.crearPelicula("Shrek 3");
+        test.crearDetalle(orden1, shrek1, 2);
+        test.crearDetalle(orden1, shrek2, 1);
+        test.crearDetalle(orden1, shrek3, 3);
+        Efectivo pagoShrek = new Efectivo(orden1.calcPrecio()+10, new Date(), orden1);
+        orden1.addPagos(pagoShrek);
+        test.crearBoleta(orden1);
+        System.out.println(orden1.toString());
         
         Cliente cliente2 = test.crearCliente("Matias Bustos", "18.764.321-1", "Barrio Universitario 1006");
         OrdenCompra orden2 = test.crearOrdenCompra(cliente2);
@@ -60,29 +60,29 @@ public class Tarea1 {
         test.crearFactura(orden2);
         System.out.println(orden2.toString());
 
-        //Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
-        //OrdenCompra orden3 = test.crearOrdenCompra(cliente3);
-        //Articulo scream = test.crearPelicula("Scream");
-        //test.crearDetalle(orden3, scream, 1);
-        //Tarjeta pagoScream = new Tarjeta(orden3.calcPrecio (), new Date (), orden3, "Debito", "5231183");
-        //orden3.addPagos(pagoScream);
-        //test.crearBoleta(orden3);
-        //System.out.println(orden3.toString());
+        Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
+        OrdenCompra orden3 = test.crearOrdenCompra(cliente3);
+        Articulo scream = test.crearPelicula("Scream");
+        test.crearDetalle(orden3, scream, 1);
+        Tarjeta pagoScream = new Tarjeta(orden3.calcPrecio (), new Date (), orden3, "Debito", "5231183");
+        orden3.addPagos(pagoScream);
+        test.crearBoleta(orden3);
+        System.out.println(orden3.toString());
 
-        //Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
-        //OrdenCompra orden4 = test.crearOrdenCompra(cliente4);
-        //Articulo akira = test.crearPelicula("Akira");
-        //Articulo perfectBlue = test.crearPelicula("Perfect Blue");
-        //Articulo onePieceFilmRed = test.crearPelicula("One piece Film red");
-        //Articulo theEndOfEvangelion = test.crearPelicula("The End of Evangelion");
-        //test.crearDetalle(orden4, akira, 1);
-        //test.crearDetalle(orden4, perfectBlue, 1);
-        //test.crearDetalle(orden4, onePieceFilmRed, 1);
-        //test.crearDetalle(orden4, theEndOfEvangelion, 1);
-        //Efectivo pago1 = new Efectivo(orden4.calcPrecio()+520,new Date(), orden4);
-        //orden4.addPagos(pago1);
-        //test.crearFactura(orden4);
-        //System.out.println(orden4.toString());
+        Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
+        OrdenCompra orden4 = test.crearOrdenCompra(cliente4);
+        Articulo akira = test.crearPelicula("Akira");
+        perfectBlue = test.crearPelicula("Perfect Blue");
+        Articulo onePieceFilmRed = test.crearPelicula("One piece Film red");
+        Articulo theEndOfEvangelion = test.crearPelicula("The End of Evangelion");
+        test.crearDetalle(orden4, akira, 1);
+        test.crearDetalle(orden4, perfectBlue, 1);
+        test.crearDetalle(orden4, onePieceFilmRed, 1);
+        test.crearDetalle(orden4, theEndOfEvangelion, 1);
+        Efectivo pago1 = new Efectivo(orden4.calcPrecio()+520,new Date(), orden4);
+        orden4.addPagos(pago1);
+        test.crearFactura(orden4);
+        System.out.println(orden4.toString());
     }
 }
 
