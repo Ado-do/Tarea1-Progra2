@@ -82,5 +82,3 @@ class Factura extends DocTributario {
         super(numero, rut, fecha, direccion, orden);
     }
 }
-
-//avance
