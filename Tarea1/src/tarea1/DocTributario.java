@@ -8,77 +8,68 @@ public abstract class DocTributario {
     private String rut;
     private Date fecha;
     private Direccion direccion;
-    public OrdenCompra orden;
-
-    public DocTributario(String numero, String rut, Date fecha, Direccion direccion, OrdenCompra orden) {
+    private OrdenCompra orden;
+    
+    public DocTributario(String numero, String rut, Date fecha, Direccion direccion) {
         this.numero = numero;
         this.rut = rut;
-        if (fecha == null) {
-            this.fecha = new Date();
-        } else {
-            this.fecha = fecha;
-        }
+        this.fecha = (fecha == null) ? new Date() : fecha;
         this.direccion = direccion;
-        this.orden = orden;
-
-        // Faltan getters, setters y toString
     }
-
-    public String getInfoCliente() {
-        return (numero + rut);
+    public String getNumero() {
+        return numero;
     }
-
+    public String getRut() {
+        return rut;
+    }
     public Date getFecha() {
         return fecha;
     }
-
     public Direccion getDireccion() {
         return direccion;
     }
-
     public OrdenCompra getOrden() {
         return orden;
     }
-
-    public void setInfoCliente(String numero, String rut) {
+    public void setNumero(String numero) {
         this.numero = numero;
+    }
+    public void setRut(String rut) {
         this.rut = rut;
     }
-
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
-
     public void setOrden(OrdenCompra orden) {
         this.orden = orden;
     }
-
     @Override
     public String toString() {
-        return " Número: " + numero + "\n RUT: " + rut + "\n Fecha: " + fecha + "\n Dirección: " + direccion.getDireccion();
+        return " Número: "+numero+"\n RUT: "+rut+"\n Fecha: "+fecha+"\n Dirección: "+direccion.getDireccion();
     }
 }
 
 class Boleta extends DocTributario {
-
-    float precioSinIVA = orden.calcPrecioSinIVA();
-    float IVA = orden.calcIVA();
-    float precio = orden.calcPrecio();
-
-    public Boleta(String numero, String rut, Date fecha, Direccion direccion, OrdenCompra orden) {
-        super(numero, rut, fecha, direccion, orden);
+    
+    public Boleta(String numero, String rut, Date fecha, Direccion direccion) {
+        super(numero, rut, fecha, direccion);
+    }
+    @Override
+    public String toString() {
+        return "Boleta:\n"+super.toString();
     }
 }
 
 class Factura extends DocTributario {
-
-    float precioSinIVA = orden.calcPrecioSinIVA();
-
-    public Factura(String numero, String rut, Date fecha, Direccion direccion, OrdenCompra orden) {
-        super(numero, rut, fecha, direccion, orden);
+    
+    public Factura(String numero, String rut, Date fecha, Direccion direccion) {
+        super(numero, rut, fecha, direccion);
+    }
+    @Override
+    public String toString() {
+        return "Factura:\n"+super.toString();
     }
 }
