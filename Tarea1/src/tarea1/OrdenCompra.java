@@ -108,6 +108,7 @@ public class OrdenCompra {
     public String toString() {
         String string = "*** Orden de Compra:\n";
         string += cliente.toString()+"\nFecha: "+fecha+"\nEstado: "+estado+"\n";
+        string +=  "Precio total: $"+this.calcPrecio()+" (IVA total: $"+this.calcIVA()+")\nPeso total: "+this.calcPeso()+"Kg\n";
         if (this.detalles != null) {
             string += "** Detalles de orden:\n";
             for (DetalleOrden detalleOrden : detalles) {
@@ -132,6 +133,7 @@ public class OrdenCompra {
         if (this.documento != null) {
             string += "** Documento tributario:\n"+documento.toString();
         }
+        string += "\n";
         return string;
     }
 }

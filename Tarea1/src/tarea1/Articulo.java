@@ -39,6 +39,6 @@ public class Articulo {
     }
     @Override
     public String toString() {
-        return "Articulo: \""+nombre + "\"\n Descripción: \""+descripcion + "\"\n Peso: "+peso+" Kg" + "\n Precio = $"+precio+" (IVA = $"+precio*0.19f+")";
+        return "Articulo: \""+nombre + "\"\n Descripción: \""+descripcion + "\"\n Peso: "+peso+"Kg" + "\n Precio total: $"+precio*1.19f+" (Precio articulo ($"+precio+") + IVA ($"+precio*0.19f+"))";
     }
 }

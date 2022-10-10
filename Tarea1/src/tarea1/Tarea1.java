@@ -19,7 +19,7 @@ public class Tarea1 {
     public Articulo crearPelicula(String nombre) {
         float peso = (float)((Math.floor(Math.random()*(10-1+1)+1)) / 10);
         float precio = (float)(1000 + Math.random() * (10000 - 1000));
-        int calificacion = (int)Math.floor(Math.random()*(10-1+1)+1);
+        int calificacion = (int)Math.floor(Math.random()*(10-4+1)+4);
         Articulo pelicula = new Articulo("Pelicula en fisico: "+nombre, "Calificacion IMDb: "+calificacion+"/10", (float)peso, (int)precio);
         return pelicula;
     }

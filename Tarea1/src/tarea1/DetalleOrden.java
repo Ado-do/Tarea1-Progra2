@@ -11,16 +11,16 @@ public class DetalleOrden {
         this.cantidad = cantidad;
     }
     public float calcPrecioSinIVA() {
-        return articulo.getPrecio() * cantidad;
+        return (float)(articulo.getPrecio() * cantidad);
     }
     public float calcIVA() {
-        return (articulo.getPrecio() * 0.19f) * cantidad;
+        return (float)((articulo.getPrecio() * 0.19f) * cantidad);
     }
     public float calcPrecio() {
-        return this.calcPrecioSinIVA() + this.calcIVA();
+        return (float)(this.calcPrecioSinIVA() + this.calcIVA());
     }
     public float calcPeso() {
-        return articulo.getPeso() * cantidad;
+        return (float)(articulo.getPeso() * cantidad);
     }
 
     public int getCantidad() {
