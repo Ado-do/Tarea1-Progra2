@@ -54,7 +54,7 @@ public class Tarea1 {
         Tarjeta pagoShrek = new Tarjeta(orden1.calcPrecio(), new Date(), orden1, "Debito", "12478124124");
         orden1.addPagos(pagoShrek);
         test.crearBoleta(orden1);
-        System.out.println(orden1.toString());
+        System.out.println(orden1);
         
         // 3 articulos iguales, 2 pagos en transferencia y con factura
         Cliente cliente2 = test.crearCliente("Matias Bustos", "18.764.321-1", "Barrio Universitario 1006");
@@ -66,7 +66,7 @@ public class Tarea1 {
         orden2.addPagos(pago1Blue);
         orden2.addPagos(pago2Blue);
         test.crearFactura(orden2);
-        System.out.println(orden2.toString());
+        System.out.println(orden2);
 
         //1 articulo, 1 pago con tarjeta y boleta
         Cliente cliente3 = test.crearCliente("Cristobal Vega", "20.543.765-4", "Barrio Universitario 1010");
@@ -76,7 +76,7 @@ public class Tarea1 {
         Tarjeta pagoScream = new Tarjeta(orden3.calcPrecio (), new Date (), orden3, "Debito", "5231183");
         orden3.addPagos(pagoScream);
         test.crearBoleta(orden3);
-        System.out.println(orden3.toString());
+        System.out.println(orden3);
         
         //4 articulos, 1 pago en efectivo y factura
         Cliente cliente4 = test.crearCliente("Franco Dias", "21.386.012-3", "Barrio Universitario 1011");
@@ -92,7 +92,7 @@ public class Tarea1 {
         Efectivo pago1 = new Efectivo(orden4.calcPrecio()+520,new Date(), orden4);
         orden4.addPagos(pago1);
         test.crearFactura(orden4);
-        System.out.println(orden4.toString());
+        System.out.println(orden4);
     }
 }
 
